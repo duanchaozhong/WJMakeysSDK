@@ -22,8 +22,8 @@ import static android.content.Context.BIND_AUTO_CREATE;
  */
 
 public class JARAuthorization {
-    static String packName="com.example.duan.chao2";
-    static String packService="com.example.duan.chao2.DCZ_util.BService";
+    static String packName="com.example.duan.chao";
+    static String packService="com.example.duan.chao.DCZ_util.BService";
 
     static String packaAtivity="com.example.duan.chao.DCZ_activity.AuthorActivity";
     static Messenger messenger;
@@ -97,7 +97,7 @@ public class JARAuthorization {
     public static void startAuthor(Context context,String packname,String pathName){
         if (checkPackInfo(packName,context)) {
             Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.example.duan.chao2","com.example.duan.chao2.DCZ_activity.AppStartActivity"));
+            intent.setComponent(new ComponentName(packName,"com.example.duan.chao.DCZ_activity.AppStartActivity"));
             intent.putExtra("App_key",App_key);
             intent.putExtra("redirect_uri",redirect_uri);
             intent.putExtra("scope",scope);
