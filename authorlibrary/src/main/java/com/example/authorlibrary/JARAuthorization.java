@@ -94,7 +94,7 @@ public class JARAuthorization {
      *  packname:包名
      *  pathName:当前类的完整路径
      * */
-    public static void startAuthor(Context context,String packname,String pathName){
+    public static void startAuthor(final Context context, String packname, String pathName){
         if (checkPackInfo(packName,context)) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(packName,"com.example.duan.chao.DCZ_activity.AppStartActivity"));
@@ -106,11 +106,19 @@ public class JARAuthorization {
             intent.putExtra("pathname",pathName);
             context.startActivity(intent);
         } else {
-            Intent intent= new Intent();
-            intent.setAction("android.intent.action.VIEW");
-            Uri content_url = Uri.parse("http://test-makeys.qeveworld.com");
-            intent.setData(content_url);
-            context.startActivity(intent);
+            new MiddleDialog(context,new MiddleDialog.onButtonCLickListener2() {
+                @Override
+                public void onActivieButtonClick(Object bean, int po) {
+                    if(bean==null){
+                    }else {
+                        Intent intent= new Intent();
+                        intent.setAction("android.intent.action.VIEW");
+                        Uri content_url = Uri.parse("http://test-makeys.qeveworld.com");
+                        intent.setData(content_url);
+                        context.startActivity(intent);
+                    }
+                }
+            }, R.style.registDialog).show();
             return;
         }
     }

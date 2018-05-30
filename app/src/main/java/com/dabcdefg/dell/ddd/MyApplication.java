@@ -14,6 +14,6 @@ public class MyApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        JARAuthorization.init(this,"SampleClientId","http://your_callback_uri ","c","d");
+        JARAuthorization.init(this,"SampleClientId","http://your_callback_uri ",null,"d");
     }
 }

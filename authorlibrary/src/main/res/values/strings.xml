@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AuthorLibrary</string>
+    <string name="button1">现在下载</string>
+    <string name="cancel">以后再说</string>
+    <string name="ti">提示</string>
+    <string name="con">未检测到makeys，现在去下载，完成授权</string>
 </resources>
