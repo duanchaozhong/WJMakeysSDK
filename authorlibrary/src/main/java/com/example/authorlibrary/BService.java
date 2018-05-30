@@ -21,6 +21,7 @@ public class BService extends Service {
     Messenger messenger = new Messenger(new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            JARAuthorization.en=false;
             App_key=msg.getData().getString("App_key");
             redirect_uri=msg.getData().getString("redirect_uri");
             scope=msg.getData().getString("scope");

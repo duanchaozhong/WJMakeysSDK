@@ -32,6 +32,7 @@ public class JARAuthorization {
     static String redirect_uri="2";     //重定向地址
     static String scope="3";            //以空格分割的权限列表
     static String state="4";            //用于保持请求和回调的状态
+    public static Boolean en=true;      //是否允许用户再次点击授权
     private static onButtonCLickListener listener;
 
     public interface onButtonCLickListener{
@@ -95,32 +96,35 @@ public class JARAuthorization {
      *  pathName:当前类的完整路径
      * */
     public static void startAuthor(final Context context, String packname, String pathName){
-        if (checkPackInfo(packName,context)) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName(packName,"com.example.duan.chao.DCZ_activity.AppStartActivity"));
-            intent.putExtra("App_key",App_key);
-            intent.putExtra("redirect_uri",redirect_uri);
-            intent.putExtra("scope",scope);
-            intent.putExtra("state",state);
-            intent.putExtra("packname",packname);
-            intent.putExtra("pathname",pathName);
-            context.startActivity(intent);
-        } else {
-            new MiddleDialog(context,new MiddleDialog.onButtonCLickListener2() {
-                @Override
-                public void onActivieButtonClick(Object bean, int po) {
-                    if(bean==null){
-                    }else {
-                        Intent intent= new Intent();
-                        intent.setAction("android.intent.action.VIEW");
-                        Uri content_url = Uri.parse("http://test-makeys.qeveworld.com");
-                        intent.setData(content_url);
-                        context.startActivity(intent);
+        if(en==true){
+            if (checkPackInfo(packName,context)) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(packName,"com.example.duan.chao.DCZ_activity.AppStartActivity"));
+                intent.putExtra("App_key",App_key);
+                intent.putExtra("redirect_uri",redirect_uri);
+                intent.putExtra("scope",scope);
+                intent.putExtra("state",state);
+                intent.putExtra("packname",packname);
+                intent.putExtra("pathname",pathName);
+                context.startActivity(intent);
+            } else {
+                new MiddleDialog(context,new MiddleDialog.onButtonCLickListener2() {
+                    @Override
+                    public void onActivieButtonClick(Object bean, int po) {
+                        if(bean==null){
+                        }else {
+                            Intent intent= new Intent();
+                            intent.setAction("android.intent.action.VIEW");
+                            Uri content_url = Uri.parse("http://test-makeys.qeveworld.com");
+                            intent.setData(content_url);
+                            context.startActivity(intent);
+                        }
                     }
-                }
-            }, R.style.registDialog).show();
-            return;
+                }, R.style.registDialog).show();
+                return;
+            }
         }
+
     }
     /**
      *  启动APP

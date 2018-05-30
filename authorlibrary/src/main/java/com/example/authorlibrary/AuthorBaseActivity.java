@@ -18,6 +18,7 @@ public class AuthorBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String a = getIntent().getStringExtra("json");
+        JARAuthorization.en=true;
         Log.i("dcz",a+"zzz");
         if(a!=null){
             if(a.equals("error")){
@@ -43,6 +44,7 @@ public class AuthorBaseActivity extends AppCompatActivity {
             if(BService.data!=null){
                 if(BService.data.equals("error")){
                     Toast.makeText(this,"失败", Toast.LENGTH_SHORT).show();
+                    JARAuthorization.en=true;
                 }else {
                     AuthorBean result = mGson.fromJson(BService.data, AuthorBean.class);
                     onChangeUserInfo(result);

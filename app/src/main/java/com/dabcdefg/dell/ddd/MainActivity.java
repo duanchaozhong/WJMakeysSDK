@@ -28,13 +28,20 @@ import retrofit2.Response;
 
 public class MainActivity extends AuthorBaseActivity{
     private TextView tv;
-    public static Boolean en=true;
 
     @Override
     protected void onChangeUserInfo(AuthorBean result) {
         super.onChangeUserInfo(result);
         Log.i("数据：",result.getCode()+"zzz");
+        tv.setEnabled(false);
         getData(result);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("dcz","resume");
+
     }
 
     @Override
@@ -88,6 +95,7 @@ public class MainActivity extends AuthorBaseActivity{
                         MyApplication.bean=response.body().getData();
                         Intent intent=new Intent(MainActivity.this,Main2Activity.class);
                         startActivity(intent);
+                        finish();
                     }else {
                         Toast.makeText(MainActivity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
                     }

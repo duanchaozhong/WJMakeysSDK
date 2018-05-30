@@ -1,5 +1,7 @@
 package com.dabcdefg.dell.ddd;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dabcdefg.dell.ddd.DCZ_okhttp.HttpServiceClient;
+import com.dabcdefg.dell.ddd.DCZ_okhttp.MiddleDialog;
 import com.example.dell.myapplication2.R;
 import com.google.gson.Gson;
 
@@ -40,7 +43,14 @@ public class Main2Activity extends AppCompatActivity {
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Layout();
+                new MiddleDialog(Main2Activity.this,new MiddleDialog.onButtonCLickListener2() {
+                    @Override
+                    public void onActivieButtonClick(Object bean, int po) {
+                        if(bean!=null){
+                            Layout();
+                        }
+                    }
+                },R.style.registDialog).show();
             }
         });
         set2(MyApplication.bean);
@@ -49,7 +59,6 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        MainActivity.en=true;
     }
 
     private void Layout(){
@@ -61,7 +70,8 @@ public class Main2Activity extends AppCompatActivity {
                     if(response.body().getCode().equals("20000")){
                         Toast.makeText(Main2Activity.this,"退出登录成功", Toast.LENGTH_SHORT).show();
                         set1();
-                        MainActivity.en=true;
+                        Intent intent=new Intent(Main2Activity.this,MainActivity.class);
+                        startActivity(intent);
                         finish();
                     }else {
                         Toast.makeText(Main2Activity.this,response.body().getMsg(), Toast.LENGTH_SHORT).show();
