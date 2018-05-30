@@ -25,7 +25,11 @@ public class AuthorBaseActivity extends AppCompatActivity {
                 Toast.makeText(this,"失败", Toast.LENGTH_SHORT).show();
             }else {
                 AuthorBean result = mGson.fromJson(a, AuthorBean.class);
-                onChangeUserInfo(result);
+                if(result.getCode().equals("20000")){
+                    onChangeUserInfo(result);
+                }else {
+                    Toast.makeText(this,result.getDesc(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -47,7 +51,12 @@ public class AuthorBaseActivity extends AppCompatActivity {
                     JARAuthorization.en=true;
                 }else {
                     AuthorBean result = mGson.fromJson(BService.data, AuthorBean.class);
-                    onChangeUserInfo(result);
+                    if(result.getCode().equals("20000")){
+                        onChangeUserInfo(result);
+                    }else {
+                        JARAuthorization.en=true;
+                        Toast.makeText(this,result.getDesc(), Toast.LENGTH_SHORT).show();
+                    }
                 }
                 BService.data=null;
             }

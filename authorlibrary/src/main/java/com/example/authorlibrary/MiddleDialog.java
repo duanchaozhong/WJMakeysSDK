@@ -2,10 +2,7 @@ package com.example.authorlibrary;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Handler;
-import android.support.v4.os.CancellationSignal;
 import android.view.View;
-import android.widget.TextView;
 
 
 /**

@@ -20,7 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Main2Activity extends AppCompatActivity {
-    private TextView tv;
     private TextView layout;
     private TextView nickname;
     private TextView mobile;
@@ -33,7 +32,6 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        tv= findViewById(R.id.tv);
         layout=findViewById(R.id.layout);
         nickname=findViewById(R.id.nickname);
         mobile=findViewById(R.id.mobile);

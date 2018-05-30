@@ -115,7 +115,7 @@ public class JARAuthorization {
                         }else {
                             Intent intent= new Intent();
                             intent.setAction("android.intent.action.VIEW");
-                            Uri content_url = Uri.parse("http://test-makeys.qeveworld.com");
+                            Uri content_url = Uri.parse("http://makeys.qeveworld.com");
                             intent.setData(content_url);
                             context.startActivity(intent);
                         }

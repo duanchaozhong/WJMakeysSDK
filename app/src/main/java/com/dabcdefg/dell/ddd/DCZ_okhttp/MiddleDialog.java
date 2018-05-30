@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 
+import com.example.dell.myapplication2.R;
+
 
 /**
  * Created by enjoytouch-ad02 on 2015/8/5.
@@ -18,7 +20,7 @@ public class MiddleDialog<E> extends Dialog {
      * */
     public MiddleDialog(Context context, final onButtonCLickListener2 listener, int theme) {
         super(context, theme);
-        view = View.inflate(context, com.example.authorlibrary.R.layout.dialog_middle, null);
+        view = View.inflate(context, R.layout.dialog_middle2, null);
         setContentView(view);
         setCancelable(false);        //设置点击对话框以外的区域时，是否结束对话框
         /*((TextView) view.findViewById(R.id.title)).setText(tv_ok);       //设置对话框的标题内容
