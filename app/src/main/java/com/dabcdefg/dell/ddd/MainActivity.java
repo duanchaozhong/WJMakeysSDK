@@ -52,7 +52,7 @@ public class MainActivity extends AuthorBaseActivity{
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                JARAuthorization.startAuthor(MainActivity.this,"com.example.dell.myapplication2","com.dabcdefg.dell.ddd.MainActivity");
+                JARAuthorization.startAuthor(MainActivity.this,"APP_name","com.example.dell.myapplication2","com.dabcdefg.dell.ddd.MainActivity");
                 /*Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.example.duan.chao2","com.example.duan.chao2.DCZ_activity.AppStartActivity"));
                 intent.putExtra("author","author");intent.putExtra("App_key","SampleClientId");

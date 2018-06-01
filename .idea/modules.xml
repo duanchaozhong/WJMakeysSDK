@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/WJMakeysSDK.iml" filepath="$PROJECT_DIR$/WJMakeysSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/authorlibrary/authorlibrary.iml" filepath="$PROJECT_DIR$/authorlibrary/authorlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/authorlibrary/authorlibrary.iml" filepath="$PROJECT_DIR$/authorlibrary/authorlibrary.iml" />
     </modules>
   </component>

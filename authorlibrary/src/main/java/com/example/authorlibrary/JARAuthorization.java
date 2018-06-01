@@ -95,12 +95,13 @@ public class JARAuthorization {
      *  packname:包名
      *  pathName:当前类的完整路径
      * */
-    public static void startAuthor(final Context context, String packname, String pathName){
+    public static void startAuthor(final Context context,String name, String packname, String pathName){
         if(en==true){
             if (checkPackInfo(packName,context)) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(packName,"com.example.duan.chao.DCZ_activity.AppStartActivity"));
                 intent.putExtra("App_key",App_key);
+                intent.putExtra("App_name",name);
                 intent.putExtra("redirect_uri",redirect_uri);
                 intent.putExtra("scope",scope);
                 intent.putExtra("state",state);
